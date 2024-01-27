@@ -1,65 +1,70 @@
 'use client'
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { FiMenu, FiX } from 'react-icons/fi';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { PiLadder } from 'react-icons/pi';
+import { MdOutlineDashboard } from 'react-icons/md';
+import { HiOutlineViewGridAdd } from 'react-icons/hi';
+import { TbReportMoney, TbAdjustmentsDollar } from 'react-icons/tb';
+
+const menuLinks = [
+  {
+    name: 'Dashboard',
+    icon: <MdOutlineDashboard size={24} />,
+    link: '/',
+  },
+  {
+    name: 'Manage Shelf',
+    icon: <PiLadder size={24} />,
+    link: '/shelf',
+  },
+  {
+    name: 'Add Shelf',
+    icon: <HiOutlineViewGridAdd size={24} />,
+    link: '/shelf/add',
+  },
+  {
+    name: 'Manage Product',
+    icon: <TbAdjustmentsDollar size={24} />,
+    link: '/product',
+  },
+  {
+    name: 'Total Sales',
+    icon: <TbReportMoney size={24} />,
+    link: '/sales',
+  },
+];
+
+// import React, { useState } from 'react';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-  const router = useRouter();
+//   const [isOpen, setIsOpen] = useState(true);
+  const pathname = usePathname();
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+//   const toggleSidebar = () => {
+//     setIsOpen(!isOpen);
+//   };
 
   return (
-    <div
-      className={`fixed top-0 left-0 h-screen w-64 bg-gray-800 text-white ${
-        isOpen ? 'translate-x-0' : '-translate-x-full'
-      } transition-transform duration-300 ease-in-out`}
-    >
-      <div className='flex items-center justify-between p-4'>
-        <div className='text-xl font-bold'>Stock Tracker</div>
-        <button
-          className='text-white focus:outline-none'
-          onClick={toggleSidebar}
-        >
-          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
+    <div className='fixed bottom-0 left-0 h-[90vh] w-[20vw] bg-white shadow-lg'>
+      <div className='flex items-center justify-between'>
+        <button className='text-black focus:outline-none'></button>
       </div>
-      <nav className='p-4'>
-        <ul className='space-y-2'>
-          <li>
-            <a
-              onClick={() => router.push('/')}
-              className='text-white hover:text-gray-300'
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              onClick={() => router.push('/stocks')}
-              className='text-white hover:text-gray-300'
-            >
-              Stocks
-            </a>
-          </li>
-          <li>
-            <a
-              onClick={() => router.push('/portfolio')}
-              className='text-white hover:text-gray-300'
-            >
-              Portfolio
-            </a>
-          </li>
-          <li>
-            <a
-              onClick={() => router.push('/news')}
-              className='text-white hover:text-gray-300'
-            >
-              News
-            </a>
-          </li>
+      <nav>
+        <ul className='space-y-2 w-full'>
+          {menuLinks.map((link, index) => (
+            <Link href={link.link} key={index}>
+              <li
+                className={`flex items-center justify-start px-5 py-5 ${
+                  pathname === link.link
+                    ? 'bg-gray-100 text-black'
+                    : 'text-gray-500 hover:bg-gray-100'
+                }`}
+              >
+                {link.icon}
+                <span className='ml-2'>{link.name}</span>
+              </li>
+            </Link>
+          ))}
         </ul>
       </nav>
     </div>
