@@ -1,11 +1,20 @@
-import { Button, Input, TextField } from '@mui/material';
+'use client'
+import { TextField } from '@mui/material';
 import React from 'react';
 
 const FeedbackForm = () => {
+  const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Form submitted');
+  };
+
   return (
-    <div className='w-1/2 min-h-3/4 h-auto m-auto grid bg-white p-6 rounded-lg'>
-      <form className='grid grid-cols-2 grid-row-7 gap-5 gap-y-6'>
-        <p className='row-start-1 col-span-1 text-pink-600 text-lg font-bold'>
+    <div className='w-[35rem] min-h-3/4 h-auto m-auto mt-8 grid bg-white p-6 rounded-lg'>
+      <form
+        className='grid grid-cols-2 grid-row-7 gap-5 gap-y-6'
+        onSubmit={formSubmitHandler}
+      >
+        <p className='row-start-1 col-span-2 text-pink-600 text-lg font-bold'>
           We&apos;re glad to hear from you!
         </p>
         <TextField
