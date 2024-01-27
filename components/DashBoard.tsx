@@ -1,6 +1,4 @@
-import React from 'react'
-
-const DashBoard = () => {
+const Dashboard = () => {
   return (
     <div className='grid gap-8 grid-cols-2 w-fit'>
       <div className='h-52 w-80 shadow-lg rounded-md bg-white p-4'>
@@ -18,6 +16,6 @@ const DashBoard = () => {
       </div>
     </div>
   );
-}
+};
 
-export default DashBoard
+export default Dashboard;
