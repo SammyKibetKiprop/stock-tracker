@@ -56,7 +56,7 @@ const Sidebar = () => {
               <li
                 className={`flex items-center justify-start px-5 py-5 ${
                   pathname === link.link
-                    ? 'bg-gray-100 text-black'
+                    ? 'bg-slate-700 text-white'
                     : 'text-gray-500 hover:bg-gray-100'
                 }`}
               >
