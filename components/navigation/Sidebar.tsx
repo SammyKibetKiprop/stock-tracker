@@ -43,7 +43,7 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
 
   return (
     <div
-      className={`fixed top-[10vh] md:bottom-0 left-8 z-10 rounded-md md:rounded-none md:left-0 h-fit md:h-[90vh] w-48 md:w-[25vw] lg:w-[20vw] bg-white shadow-lg md:transform-none ${
+      className={`fixed top-[10vh] md:bottom-0 left-8 z-20 rounded-md md:rounded-none md:left-0 h-fit md:h-[90vh] w-48 md:w-[25vw] lg:w-[20vw] bg-white shadow-lg md:transform-none ${
         isOpen ? 'transform-none' : 'scale-0'
       } transition-transform duration-400 ease-in-out overflow-hidden origin-top-left`}
     >
