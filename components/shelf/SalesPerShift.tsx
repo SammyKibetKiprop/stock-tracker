@@ -19,8 +19,8 @@ const data = {
 
 const SalesPerShift = () => {
   return (
-    <div className='col-start-1 col-span-2 lg:col-start-3 row-start-2 lg:row-start-1 shadow-lg p-6'>
-      <Pie data={data}  />
+    <div className='col-start-1 col-span-2 lg:col-start-3 row-start-2 lg:row-start-1 shadow-lg p-6 w-[20rem]'>
+      <Pie data={data} className='w-full' />
     </div>
   );
 };
