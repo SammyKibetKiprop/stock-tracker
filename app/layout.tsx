@@ -18,10 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={`${inter.className} h-fit bg-neutral-100`}>
         <NavigationPanel />
 
-        <main className='min-h-[90vh] fixed bottom-0 right-0 w-screen md:w-[80vw] p-8 bg-neutral-100'>
+        <main className='min-h-[90vh] h-fit overflow-scroll mt-[10vh] md:mt-0 md:fixed bottom-0 right-0 w-screen md:w-[75vw] lg:w-[80vw] p-8'>
           {children}
         </main>
       </body>

@@ -6,7 +6,7 @@ interface HeaderProps {
 
 const Header = ({ toggleSidebar }: HeaderProps) => {
   return (
-    <header className='fixed top-0 left-0 w-screen h-[10vh] flex justify-between items-center px-8 md:px-12 xl:px-20 py-5 shadow-sm md:shadow-lg'>
+    <header className='fixed top-0 left-0 w-screen h-[10vh] flex justify-between items-center px-8 md:px-12 xl:px-20 py-5 shadow-sm md:shadow-lg bg-white'>
       <div className='text-xl font-bold flex gap-4 items-center'>
         <TbMenuDeep
           className='md:hidden cursor-pointer text-2xl'
