@@ -1,5 +1,3 @@
-'use client';
-import { useState } from 'react';
 import { TbMenuDeep } from 'react-icons/tb';
 
 interface HeaderProps {
@@ -11,8 +9,7 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
     <header className='fixed top-0 left-0 w-screen h-[10vh] flex justify-between items-center px-8 md:px-12 xl:px-20 py-5 shadow-sm md:shadow-lg'>
       <div className='text-xl font-bold flex gap-4 items-center'>
         <TbMenuDeep
-          size={24}
-          className='md:hidden'
+          className='md:hidden cursor-pointer text-2xl'
           onClick={toggleSidebar}
         />
         <h1>Stock Tracker</h1>

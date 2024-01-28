@@ -1,11 +1,10 @@
-'use client';
+// 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PiLadder } from 'react-icons/pi';
 import { MdOutlineDashboard } from 'react-icons/md';
 import { HiOutlineViewGridAdd } from 'react-icons/hi';
 import { TbReportMoney, TbAdjustmentsDollar } from 'react-icons/tb';
-import { useState } from 'react';
 
 const menuLinks = [
   {
@@ -35,19 +34,18 @@ const menuLinks = [
   },
 ];
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-  const pathname = usePathname();
+interface SidebarProps {
+  isOpen: boolean;
+}
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+const Sidebar = ({ isOpen }: SidebarProps) => {
+  const pathname = usePathname();
 
   return (
     <div
-      className={`fixed top-[10vh] md:bottom-0 left-8 rounded-md md:rounded-none md:left-0 md:h-[90vh] w-48 md:w-[25vw] lg:w-[20vw] bg-white shadow-lg ${
-        isOpen ? 'h-fit' : 'h-0'
-      } transition-transform duration-400 ease-in-out`}
+      className={`fixed top-[10vh] md:bottom-0 left-8 z-10 rounded-md md:rounded-none md:left-0 h-fit md:h-[90vh] w-48 md:w-[25vw] lg:w-[20vw] bg-white shadow-lg ${
+        isOpen ? 's scale-full' : 'scale-0'
+      } transition-transform duration-400 ease-in-out overflow-hidden origin-top-left`}
     >
       <div className='flex items-center justify-between'>
         <button className='text-black focus:outline-none'></button>
