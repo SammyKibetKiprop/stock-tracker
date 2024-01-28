@@ -1,3 +1,4 @@
+'use client'
 import {
   Paper,
   Table,
@@ -6,11 +7,11 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  tableCellClasses,
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import React from 'react';
 
-// list of shelves with productName, serialNumber, shelfId, date
-// add shelf button
 
 const shelves = [
   {
@@ -33,32 +34,45 @@ const shelves = [
   },
 ];
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
 const Shelf = () => {
+
   return (
-    <div>
+    <div className='flex flex-col justify-between items-start gap-10'>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Product Name</TableCell>
-              <TableCell>Serial Number</TableCell>
-              <TableCell>Shelf ID</TableCell>
-              <TableCell>Date</TableCell>
+              <StyledTableCell>Product Name</StyledTableCell>
+              <StyledTableCell>Serial Number</StyledTableCell>
+              <StyledTableCell>Shelf ID</StyledTableCell>
+              <StyledTableCell>Date</StyledTableCell>
             </TableRow>
           </TableHead>
 
           <TableBody>
             {shelves.map((shelf) => (
               <TableRow key={shelf.shelfId}>
-                <TableCell>{shelf.productName}</TableCell>
-                <TableCell>{shelf.serialNumber}</TableCell>
-                <TableCell>{shelf.shelfId}</TableCell>
-                <TableCell>{shelf.date}</TableCell>
+                <StyledTableCell>{shelf.productName}</StyledTableCell>
+                <StyledTableCell>{shelf.serialNumber}</StyledTableCell>
+                <StyledTableCell>{shelf.shelfId}</StyledTableCell>
+                <StyledTableCell>{shelf.date}</StyledTableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+
+      <button className='bg-slate-700 hover:bg-slate-600 px-8 py-4 rounded-sm text-white self-end text-sm'>Add Shelf</button>
     </div>
   );
 };
