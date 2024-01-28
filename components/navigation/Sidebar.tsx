@@ -20,7 +20,7 @@ const menuLinks = [
   {
     name: 'Add Shelf',
     icon: <HiOutlineViewGridAdd />,
-    link: '/shelf/add',
+    link: '/shelf/new',
   },
   {
     name: 'Manage Product',
