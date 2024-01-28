@@ -1,51 +1,54 @@
-'use client'
+'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PiLadder } from 'react-icons/pi';
 import { MdOutlineDashboard } from 'react-icons/md';
 import { HiOutlineViewGridAdd } from 'react-icons/hi';
 import { TbReportMoney, TbAdjustmentsDollar } from 'react-icons/tb';
+import { useState } from 'react';
 
 const menuLinks = [
   {
     name: 'Dashboard',
-    icon: <MdOutlineDashboard size={24} />,
+    icon: <MdOutlineDashboard />,
     link: '/',
   },
   {
     name: 'Manage Shelf',
-    icon: <PiLadder size={24} />,
+    icon: <PiLadder />,
     link: '/shelf',
   },
   {
     name: 'Add Shelf',
-    icon: <HiOutlineViewGridAdd size={24} />,
+    icon: <HiOutlineViewGridAdd />,
     link: '/shelf/add',
   },
   {
     name: 'Manage Product',
-    icon: <TbAdjustmentsDollar size={24} />,
+    icon: <TbAdjustmentsDollar />,
     link: '/product',
   },
   {
     name: 'Total Sales',
-    icon: <TbReportMoney size={24} />,
+    icon: <TbReportMoney />,
     link: '/sales',
   },
 ];
 
-// import React, { useState } from 'react';
-
 const Sidebar = () => {
-//   const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
   const pathname = usePathname();
 
-//   const toggleSidebar = () => {
-//     setIsOpen(!isOpen);
-//   };
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <div className='fixed bottom-0 left-0 h-[90vh] w-[20vw] bg-white shadow-lg'>
+    <div
+      className={`fixed top-[10vh] md:bottom-0 left-8 rounded-md md:rounded-none md:left-0 md:h-[90vh] w-48 md:w-[25vw] lg:w-[20vw] bg-white shadow-lg ${
+        isOpen ? 'h-fit' : 'h-0'
+      } transition-transform duration-400 ease-in-out`}
+    >
       <div className='flex items-center justify-between'>
         <button className='text-black focus:outline-none'></button>
       </div>
@@ -54,14 +57,18 @@ const Sidebar = () => {
           {menuLinks.map((link, index) => (
             <Link href={link.link} key={index}>
               <li
-                className={`flex items-center justify-start px-5 py-5 ${
+                className={`flex items-center justify-start p-4 md:p-5 ${
                   pathname === link.link
                     ? 'bg-slate-700 text-white'
                     : 'text-gray-500 hover:bg-gray-100'
                 }`}
               >
-                {link.icon}
-                <span className='ml-2'>{link.name}</span>
+                <span className='md:text-lg lg:text-xl xl:text-2xl'>
+                  {link.icon}
+                </span>
+                <span className='ml-2 text-sm md:text-md'>
+                  {link.name}
+                </span>
               </li>
             </Link>
           ))}

@@ -21,8 +21,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
 
-        <main className='min-h-[90vh] fixed bottom-0 right-0 w-[80vw] p-8 bg-neutral-100'>
           <Sidebar />
+        <main className='min-h-[90vh] fixed bottom-0 right-0 w-[80vw] p-8 bg-neutral-100'>
           {children}
         </main>
       </body>

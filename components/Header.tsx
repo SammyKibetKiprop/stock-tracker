@@ -1,9 +1,22 @@
-import React from 'react'
+'use client';
+import { useState } from 'react';
+import { TbMenuDeep } from 'react-icons/tb';
 
-const Header = () => {
+interface HeaderProps {
+  toggleSidebar: () => void;
+}
+
+const Header = ({ toggleSidebar }: HeaderProps) => {
   return (
-    <header className='fixed top-0 left-0 w-screen h-[10vh] flex justify-between items-center px-20 py-5 shadow-sm md:shadow-lg'>
-      <div className='text-xl font-bold'>Stock Tracker</div>
+    <header className='fixed top-0 left-0 w-screen h-[10vh] flex justify-between items-center px-8 md:px-12 xl:px-20 py-5 shadow-sm md:shadow-lg'>
+      <div className='text-xl font-bold flex gap-4 items-center'>
+        <TbMenuDeep
+          size={24}
+          className='md:hidden'
+          onClick={toggleSidebar}
+        />
+        <h1>Stock Tracker</h1>
+      </div>
 
       {/* a small dropdown to manage accounts */}
       <div className='flex items-center space-x-2'>
@@ -12,6 +25,6 @@ const Header = () => {
       </div>
     </header>
   );
-}
+};
 
-export default Header
+export default Header;

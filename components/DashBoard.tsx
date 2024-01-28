@@ -1,6 +1,6 @@
 const Dashboard = () => {
   return (
-    <div className='grid gap-8 grid-cols-2 w-fit'>
+    <div className='grid gap-8 grid-cols-2 w-full'>
       <div className='h-52 w-80 shadow-lg rounded-md bg-white p-4'>
         <h3 className='font-semibold text-xl tracking-wide'>
           Category
