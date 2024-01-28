@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import {
   Paper,
   Table,
@@ -10,8 +10,24 @@ import {
   tableCellClasses,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import React from 'react';
 
+import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
+
+Chart.register(ArcElement, Tooltip, Legend);
+
+const data = {
+  labels: ['Morning', 'Afternoon', 'Evening'],
+  datasets: [
+    {
+      label: '# of Votes',
+      data: [12, 19, 3],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      borderColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      borderWidth: 1,
+    },
+  ],
+};
 
 const shelves = [
   {
@@ -45,34 +61,45 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const Shelf = () => {
-
   return (
-    <div className='flex flex-col justify-between items-start gap-10'>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Product Name</StyledTableCell>
-              <StyledTableCell>Serial Number</StyledTableCell>
-              <StyledTableCell>Shelf ID</StyledTableCell>
-              <StyledTableCell>Date</StyledTableCell>
-            </TableRow>
-          </TableHead>
-
-          <TableBody>
-            {shelves.map((shelf) => (
-              <TableRow key={shelf.shelfId}>
-                <StyledTableCell>{shelf.productName}</StyledTableCell>
-                <StyledTableCell>{shelf.serialNumber}</StyledTableCell>
-                <StyledTableCell>{shelf.shelfId}</StyledTableCell>
-                <StyledTableCell>{shelf.date}</StyledTableCell>
+    <div>
+      <div className='flex flex-col justify-between items-start gap-10'>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>Product Name</StyledTableCell>
+                <StyledTableCell>Serial Number</StyledTableCell>
+                <StyledTableCell>Shelf ID</StyledTableCell>
+                <StyledTableCell>Date</StyledTableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
 
-      <button className='bg-slate-700 hover:bg-slate-600 px-8 py-4 rounded-sm text-white self-end text-sm'>Add Shelf</button>
+            <TableBody>
+              {shelves.map((shelf) => (
+                <TableRow key={shelf.shelfId}>
+                  <StyledTableCell>
+                    {shelf.productName}
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    {shelf.serialNumber}
+                  </StyledTableCell>
+                  <StyledTableCell>{shelf.shelfId}</StyledTableCell>
+                  <StyledTableCell>{shelf.date}</StyledTableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+
+        <button className='bg-slate-700 hover:bg-slate-600 px-8 py-4 rounded-sm text-white self-end text-sm'>
+          Add Shelf
+        </button>
+      </div>
+
+      <div className='flex flex-col justify-between items-start gap-10'>
+        <Pie data={data} />
+      </div>
     </div>
   );
 };
