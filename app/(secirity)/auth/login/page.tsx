@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Login = () => {
   return (
-    <div className=' max-w-96 w-screen min-h-72 h-fit rounded-lg p-6 bg-white shadow-lg grid gap-16'>
+    <div className=' max-w-[26rem] w-screen min-h-72 h-fit rounded-lg p-8 bg-white shadow-lg grid gap-16'>
       <h2 className='font-bold tracking-wide text-2xl'>Login</h2>
       <form className='grid gap-10'>
         <TextField
