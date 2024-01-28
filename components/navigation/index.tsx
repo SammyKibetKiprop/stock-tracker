@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import Header from '../Header';
-import Sidebar from '../Sidebar';
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 const NavigationPanel = () => {
   const [isOpen, setIsOpen] = useState(false);
