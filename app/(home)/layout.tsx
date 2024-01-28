@@ -16,8 +16,8 @@ export default function HomeLayout({
   return (
     <>
       <NavigationPanel />
-
-      <main className='min-h-[90vh] h-fit overflow-scroll mt-[10vh] md:mt-0 md:fixed bottom-0 right-0 w-screen md:w-[75vw] lg:w-[80vw] p-8'>
+      {/* px-2 sm:px-2 mx-auto md:mx-0 sm:w-full md:max-w-screen-sm */}
+      <main className='h-[90vh] min-h-96 overflow-scroll mt-[10vh] md:mt-0 md:fixed bottom-0 right-0 w-screen md:w-[75vw] lg:w-[80vw] p-8'>
         {children}
       </main>
     </>
