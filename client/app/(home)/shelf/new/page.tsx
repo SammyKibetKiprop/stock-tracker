@@ -22,6 +22,9 @@ const AddShelf = () => {
 
   return (
     <div className='w-[85vw] px-2 sm:px-2 mx-auto md:mx-0 sm:w-full md:max-w-screen-sm'>
+      <h3 className='font-bold tracking-wide text-xl capitalize mb-10'>
+        Add Shelf
+      </h3>
       <form
         className='grid gap-4 grid-cols-2'
         onSubmit={handleSubmit}
