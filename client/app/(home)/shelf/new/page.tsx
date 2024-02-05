@@ -1,4 +1,10 @@
-import { Grid, InputLabel, TextField } from '@mui/material';
+import {
+  Button,
+  Grid,
+  InputAdornment,
+  InputLabel,
+  TextField,
+} from '@mui/material';
 import React from 'react';
 
 const AddShelf = () => {
@@ -16,6 +22,7 @@ const AddShelf = () => {
             id='name'
             variant='outlined'
             size='small'
+            placeholder='Shelf 1 Name'
             className='flex-1'
           />
         </div>
@@ -31,6 +38,7 @@ const AddShelf = () => {
             id='id'
             variant='outlined'
             size='small'
+            placeholder='001'
             className='flex-1'
           />
         </div>
@@ -46,6 +54,7 @@ const AddShelf = () => {
             id='category'
             variant='outlined'
             size='small'
+            placeholder='Category 1'
             className='flex-1'
           />
         </div>
@@ -61,6 +70,7 @@ const AddShelf = () => {
             id='prod-type'
             variant='outlined'
             size='small'
+            placeholder='cereals, snacks, etc.'
             className='flex-1'
           />
         </div>
@@ -76,6 +86,7 @@ const AddShelf = () => {
             id='prod'
             variant='outlined'
             size='small'
+            placeholder='bread, milk, etc.'
             className='flex-1'
           />
         </div>
@@ -91,6 +102,7 @@ const AddShelf = () => {
             id='prod-id'
             variant='outlined'
             size='small'
+            placeholder='001'
             className='flex-1'
           />
         </div>
@@ -106,6 +118,7 @@ const AddShelf = () => {
             id='prod-desc'
             variant='outlined'
             size='small'
+            placeholder='Description of product'
             multiline
             rows={5}
             className='flex-1'
@@ -124,8 +137,20 @@ const AddShelf = () => {
             variant='outlined'
             size='small'
             className='flex-1'
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position='start'>$</InputAdornment>
+              ),
+            }}
           />
         </div>
+
+        <button
+          className=' bg-slate-700 hover:bg-slate-600 text-white rounded-md py-3 px-8 font-semibold col-span-2 w-fit justify-self-end'
+          type='submit'
+        >
+          Add Shelf
+        </button>
       </form>
     </div>
   );
