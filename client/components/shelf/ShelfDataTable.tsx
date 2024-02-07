@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   Paper,
   Table,
@@ -56,9 +57,11 @@ const ShelfDataTable = ({ shelves }: { shelves: Shelf[] }) => {
         </Table>
       </TableContainer>
 
-      <button className='bg-slate-700 hover:bg-slate-600 px-8 py-4 rounded-sm text-white self-end text-sm'>
-        Add Shelf
-      </button>
+      <Link href='/shelf/add'>
+        <button className='bg-slate-700 hover:bg-slate-600 px-8 py-4 rounded-sm text-white self-end text-sm'>
+          Add Shelf
+        </button>
+      </Link>
     </div>
   );
 };
