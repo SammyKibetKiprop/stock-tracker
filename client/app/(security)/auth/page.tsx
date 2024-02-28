@@ -1,13 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { TextField } from '@mui/material';
-import { userAuthHandler } from '@/utils/service';
 
-export interface AuthState {
-  username: string;
-  password: string;
-  isLogin: boolean;
-}
+import { userAuthHandler } from '@/utils/service';
+import { AuthState } from '@/utils/interfaces';
 
 const Auth = () => {
   const [authState, setAuthState] = useState<AuthState>({
@@ -21,7 +17,13 @@ const Auth = () => {
       <h2 className='font-bold tracking-wide text-2xl capitalize'>
         {authState.isLogin ? 'login' : 'register'}
       </h2>
-      <form className='grid gap-10'>
+      <form
+        className='grid gap-10'
+        onSubmit={(e) => {
+          e.preventDefault();
+          userAuthHandler(authState);
+        }}
+      >
         <TextField
           id='username'
           type='text'
@@ -49,10 +51,6 @@ const Auth = () => {
         <button
           className=' bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-sky-500 text-white rounded-md p-4 font-semibold'
           type='submit'
-          onClick={(e) => {
-            e.preventDefault();
-            userAuthHandler(authState);
-          }}
         >
           {authState.isLogin ? 'Login' : 'Register'}
         </button>

@@ -1,10 +1,13 @@
 'use client';
 
-import { InputAdornment, InputLabel, TextField } from '@mui/material';
 import React, { useState } from 'react';
+import { InputAdornment, InputLabel, TextField } from '@mui/material';
+
+import { NewShelfData } from '@/utils/interfaces';
+import { addShelfHandler } from '@/utils/service';
 
 const AddShelf = () => {
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<NewShelfData>({
     name: '',
     id: '',
     category: '',
@@ -27,7 +30,10 @@ const AddShelf = () => {
       </h3>
       <form
         className='grid gap-4 grid-cols-2'
-        onSubmit={handleSubmit}
+        onSubmit={(e) => {
+          e.preventDefault();
+          addShelfHandler(formState);
+        }}
       >
         <div className='col-span-2 flex gap-10 justify-start items-center'>
           <InputLabel
