@@ -3,17 +3,17 @@ import { useEffect, useState } from 'react';
 
 import SalesPerShift from '@/components/shelf/SalesPerShift';
 import ShelfDataTable from '@/components/shelf/ShelfDataTable';
-import { ShelfData } from '@/utils/interfaces';
+import { Shelf } from '@/utils/interfaces';
 import { getAllShelves } from '@/utils/service';
 import { Card } from '@mui/material';
 
 const tags = ['Total Products', 'Products Sold', 'Sales'];
 
 const Shelf = () => {
-  const [shelfData, setShelfData] = useState<ShelfData[]>([]);
+  const [shelfData, setShelfData] = useState<Shelf[]>([]);
 
   useEffect(() => {
-    getAllShelves().then((data: ShelfData[]) => {
+    getAllShelves().then((data: Shelf[]) => {
       setShelfData(data);
     });
   }, []);

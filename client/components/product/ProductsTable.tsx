@@ -10,6 +10,8 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { Product } from '@/utils/interfaces';
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -20,14 +22,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-interface Product {
-  productId: string;
-  productName: string;
-  productDescription: string;
-  productPrice: number;
-  shelfId: string;
-  image: string;
-}
+
 
 const ProductsTable = ({ products }: { products: Product[] }) => {
   return (

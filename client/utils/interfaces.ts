@@ -4,7 +4,7 @@ export interface AuthState {
   isLogin: boolean;
 }
 
-export interface NewShelfData {
+export interface NewShelf {
   name: string;
   id: string;
   category: string;
@@ -15,9 +15,18 @@ export interface NewShelfData {
   price: string;
 }
 
-export interface ShelfData {
+export interface Shelf {
   productName: string;
   serialNumber: string;
   shelfId: string;
   date: string;
+}
+
+export interface Product {
+  productId: string;
+  productName: string;
+  productDescription: string;
+  productPrice: number;
+  shelfId: string;
+  image: string;
 }

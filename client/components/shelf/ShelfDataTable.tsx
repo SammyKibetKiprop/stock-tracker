@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import { ShelfData } from '@/utils/interfaces';
+import { Shelf } from '@/utils/interfaces';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -23,7 +23,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-const ShelfDataTable = ({ shelves }: { shelves: ShelfData[] }) => {
+const ShelfDataTable = ({ shelves }: { shelves: Shelf[] }) => {
   return (
     <div className='flex flex-col justify-between items-start gap-10 col-start-1 col-span-1 md:col-span-2 row-start-1 row-span-1'>
       <TableContainer component={Paper}>

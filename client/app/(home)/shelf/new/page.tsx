@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import { InputAdornment, InputLabel, TextField } from '@mui/material';
 
-import { NewShelfData } from '@/utils/interfaces';
+import { NewShelf } from '@/utils/interfaces';
 import { addShelfHandler } from '@/utils/service';
 
 const AddShelf = () => {
-  const [formState, setFormState] = useState<NewShelfData>({
+  const [formState, setFormState] = useState<NewShelf>({
     name: '',
     id: '',
     category: '',
