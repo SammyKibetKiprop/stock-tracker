@@ -14,3 +14,10 @@ export interface NewShelfData {
   prodDesc: string;
   price: string;
 }
+
+export interface ShelfData {
+  productName: string;
+  serialNumber: string;
+  shelfId: string;
+  date: string;
+}

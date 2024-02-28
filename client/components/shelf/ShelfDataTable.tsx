@@ -11,6 +11,8 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { ShelfData } from '@/utils/interfaces';
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -21,14 +23,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-interface Shelf {
-  productName: string;
-  serialNumber: string;
-  shelfId: string;
-  date: string;
-}
-
-const ShelfDataTable = ({ shelves }: { shelves: Shelf[] }) => {
+const ShelfDataTable = ({ shelves }: { shelves: ShelfData[] }) => {
   return (
     <div className='flex flex-col justify-between items-start gap-10 col-start-1 col-span-1 md:col-span-2 row-start-1 row-span-1'>
       <TableContainer component={Paper}>
