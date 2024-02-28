@@ -30,3 +30,8 @@ export interface Product {
   shelfId: string;
   image: string;
 }
+
+export interface SalesPerShift {
+  shift: string[];
+  sales: number[];
+}

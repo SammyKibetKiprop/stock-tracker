@@ -1,4 +1,9 @@
-import { AuthState, NewShelf, Product, Shelf } from '@/utils/interfaces';
+import {
+  AuthState,
+  NewShelf,
+  Product,
+  Shelf,
+} from '@/utils/interfaces';
 
 // send a login/signup request: path: app\(security)\auth\page.tsx
 export const userAuthHandler = async (authState: AuthState) => {
@@ -87,4 +92,37 @@ export const getAllProducts = async () => {
   ];
 
   return placeholderProducts;
+};
+
+// add a new product: path: app\(home)\product\new\page.tsx
+export const addProductHandler = async (newProductData: Product) => {
+  console.log(newProductData);
+};
+
+// delete a product: path: app\(home)\product\page.tsx
+export const deleteProductHandler = async (productId: string) => {
+  console.log(productId);
+};
+
+// delete a shelf: path: app\(home)\shelf\page.tsx
+export const deleteShelfHandler = async (shelfId: string) => {
+  console.log(shelfId);
+};
+
+// update a product: path: app\(home)\product\page.tsx
+export const updateProductHandler = async (
+  updatedProductData: Product
+) => {
+  console.log(updatedProductData);
+};
+
+// getSalesPerShift: path: app\(home)\shelf\page.tsx
+export const getSalesPerShift = async () => {
+  // fetch sales per shift
+  const salesPerShift = {
+    shift: ['Morning', 'Afternoon', 'Evening'],
+    sales: [12, 19, 3],
+  };
+
+  return salesPerShift;
 };
