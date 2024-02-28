@@ -52,7 +52,7 @@ const ShelfDataTable = ({ shelves }: { shelves: Shelf[] }) => {
         </Table>
       </TableContainer>
 
-      <Link href='/shelf/add'>
+      <Link href='/shelf/new'>
         <button className='bg-slate-700 hover:bg-slate-600 px-8 py-4 rounded-sm text-white self-end text-sm'>
           Add Shelf
         </button>
