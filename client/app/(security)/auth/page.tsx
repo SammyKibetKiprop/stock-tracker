@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { TextField } from '@mui/material';
-import { login } from '@/utils/service';
+import { userAuthHandler } from '@/utils/service';
 
-interface AuthState {
+export interface AuthState {
   username: string;
   password: string;
   isLogin: boolean;
@@ -51,7 +51,7 @@ const Auth = () => {
           type='submit'
           onClick={(e) => {
             e.preventDefault();
-            login(authState.username, authState.password);
+            userAuthHandler(authState);
           }}
         >
           {authState.isLogin ? 'Login' : 'Register'}
