@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import SalesPerShift from '@/components/shelf/SalesPerShift';
 import ShelfDataTable from '@/components/shelf/ShelfDataTable';
 import { Shelf } from '@/utils/interfaces';
 import { getAllShelves } from '@/utils/service';
@@ -30,9 +29,9 @@ const Shelf = () => {
           </Card>
         ))}
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between items-center gap-10 w-full'>
+
+      <div className=' justify-between items-center gap-10 w-full'>
         <ShelfDataTable shelves={shelfData} />
-        <SalesPerShift />
       </div>
     </div>
   );

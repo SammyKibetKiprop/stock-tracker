@@ -13,7 +13,7 @@ const menuLinks = [
     link: '/',
   },
   {
-    name: 'Manage Shelf',
+    name: 'Shelves',
     icon: <PiLadder />,
     link: '/shelf',
   },
@@ -23,7 +23,7 @@ const menuLinks = [
     link: '/shelf/new',
   },
   {
-    name: 'Manage Product',
+    name: 'Products',
     icon: <TbAdjustmentsDollar />,
     link: '/product',
   },

@@ -33,7 +33,7 @@ const SalesPerShift = () => {
   };
 
   return (
-    <div className='col-start-1 col-span-2 lg:col-start-3 row-start-2 lg:row-start-1 shadow-lg p-6 w-[20rem]'>
+    <div className='shadow-lg p-6 w-screen max-w-[30rem]'>
       <Pie data={data} className='w-full' />
     </div>
   );
