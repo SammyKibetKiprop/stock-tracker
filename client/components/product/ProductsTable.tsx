@@ -40,13 +40,13 @@ const ProductsTable = ({ products }: { products: Product[] }) => {
 
         <TableBody>
           {products.map((product) => (
-            <TableRow key={product.productId}>
-              <StyledTableCell>{product.productName}</StyledTableCell>
+            <TableRow key={product.id}>
+              <StyledTableCell>{product.name}</StyledTableCell>
               <StyledTableCell>
-                {product.productDescription}
+                {product.description}
               </StyledTableCell>
               <StyledTableCell>
-                {product.productPrice}
+                {product.price}
               </StyledTableCell>
               <StyledTableCell>{product.shelfId}</StyledTableCell>
               <StyledTableCell>{product.image}</StyledTableCell>

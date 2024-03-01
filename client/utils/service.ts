@@ -23,21 +23,21 @@ export const getAllShelves = async () => {
   // fetch all shelves
   const placeholderShelves: Shelf[] = [
     {
-      productName: 'Product 1',
+      name: 'Shelf 1',
+      id: '123',
       serialNumber: '123',
-      shelfId: '123',
       date: '2021-09-21',
     },
     {
-      productName: 'Product 2',
+      name: 'Shelf 2',
+      id: '456',
       serialNumber: '456',
-      shelfId: '456',
       date: '2021-09-21',
     },
     {
-      productName: 'Product 3',
+      name: 'Shelf 3',
+      id: '789',
       serialNumber: '789',
-      shelfId: '789',
       date: '2021-09-21',
     },
   ];
@@ -50,43 +50,27 @@ export const getAllProducts = async () => {
   // fetch all products
   const placeholderProducts: Product[] = [
     {
-      productId: '1',
-      productName: 'Product 1',
-      productDescription: 'Description of Product 1',
-      productPrice: 100,
+      id: '1',
+      name: 'Product 1',
+      description: 'Description of Product 1',
+      price: 100,
       shelfId: '1',
       image: 'https://via.placeholder.com/150',
     },
     {
-      productId: '2',
-      productName: 'Product 2',
-      productDescription: 'Description of Product 2',
-      productPrice: 200,
+      id: '2',
+      name: 'Product 2',
+      description: 'Description of Product 2',
+      price: 200,
       shelfId: '2',
       image: 'https://via.placeholder.com/150',
     },
     {
-      productId: '3',
-      productName: 'Product 3',
-      productDescription: 'Description of Product 3',
-      productPrice: 300,
+      id: '3',
+      name: 'Product 3',
+      description: 'Description of Product 3',
+      price: 300,
       shelfId: '3',
-      image: 'https://via.placeholder.com/150',
-    },
-    {
-      productId: '4',
-      productName: 'Product 4',
-      productDescription: 'Description of Product 4',
-      productPrice: 400,
-      shelfId: '4',
-      image: 'https://via.placeholder.com/150',
-    },
-    {
-      productId: '5',
-      productName: 'Product 5',
-      productDescription: 'Description of Product 5',
-      productPrice: 500,
-      shelfId: '5',
       image: 'https://via.placeholder.com/150',
     },
   ];

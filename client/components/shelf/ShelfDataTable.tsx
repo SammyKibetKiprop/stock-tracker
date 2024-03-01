@@ -30,7 +30,7 @@ const ShelfDataTable = ({ shelves }: { shelves: Shelf[] }) => {
         <Table>
           <TableHead>
             <TableRow>
-              <StyledTableCell>Product Name</StyledTableCell>
+              <StyledTableCell>Shelf Name</StyledTableCell>
               <StyledTableCell>Serial Number</StyledTableCell>
               <StyledTableCell>Shelf ID</StyledTableCell>
               <StyledTableCell>Date</StyledTableCell>
@@ -39,12 +39,12 @@ const ShelfDataTable = ({ shelves }: { shelves: Shelf[] }) => {
 
           <TableBody>
             {shelves.map((shelf) => (
-              <TableRow key={shelf.shelfId}>
-                <StyledTableCell>{shelf.productName}</StyledTableCell>
+              <TableRow key={shelf.id}>
+                <StyledTableCell>{shelf.name}</StyledTableCell>
                 <StyledTableCell>
                   {shelf.serialNumber}
                 </StyledTableCell>
-                <StyledTableCell>{shelf.shelfId}</StyledTableCell>
+                <StyledTableCell>{shelf.id}</StyledTableCell>
                 <StyledTableCell>{shelf.date}</StyledTableCell>
               </TableRow>
             ))}

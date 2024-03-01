@@ -16,17 +16,17 @@ export interface NewShelf {
 }
 
 export interface Shelf {
-  productName: string;
+  name: string;
+  id: string;
   serialNumber: string;
-  shelfId: string;
   date: string;
 }
 
 export interface Product {
-  productId: string;
-  productName: string;
-  productDescription: string;
-  productPrice: number;
+  id: string;
+  name: string;
+  description: string;
+  price: number;
   shelfId: string;
   image: string;
 }
