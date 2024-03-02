@@ -40,6 +40,7 @@ interface SidebarProps {
 
 const Sidebar = ({ isOpen }: SidebarProps) => {
   const pathname = usePathname();
+  const currentBasePath = `/${pathname.split('/')[1]}`;
 
   return (
     <div
@@ -56,7 +57,7 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
             <Link href={link.link} key={index}>
               <li
                 className={`flex items-center justify-start p-4 md:p-5 mt-0.5 ${
-                  pathname === link.link
+                  currentBasePath === link.link
                     ? 'bg-slate-700 text-white'
                     : 'text-gray-500 hover:bg-gray-100'
                 }`}
