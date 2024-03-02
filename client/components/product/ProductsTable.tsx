@@ -1,3 +1,5 @@
+import { useRouter } from 'next/navigation';
+
 import {
   Paper,
   Table,
@@ -22,9 +24,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-
-
 const ProductsTable = ({ products }: { products: Product[] }) => {
+  const router = useRouter();
+
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -40,14 +42,14 @@ const ProductsTable = ({ products }: { products: Product[] }) => {
 
         <TableBody>
           {products.map((product) => (
-            <TableRow key={product.id}>
+            <TableRow
+              key={product.id}
+              className='hover:bg-slate-100 hover:cursor-pointer'
+              onClick={() => router.push(`/product/${product.id}`)}
+            >
               <StyledTableCell>{product.name}</StyledTableCell>
-              <StyledTableCell>
-                {product.description}
-              </StyledTableCell>
-              <StyledTableCell>
-                {product.price}
-              </StyledTableCell>
+              <StyledTableCell>{product.description}</StyledTableCell>
+              <StyledTableCell>{product.price}</StyledTableCell>
               <StyledTableCell>{product.shelfId}</StyledTableCell>
               <StyledTableCell>{product.image}</StyledTableCell>
             </TableRow>

@@ -5,6 +5,54 @@ import {
   Shelf,
 } from '@/utils/interfaces';
 
+const PLACEHOLDER_PRODUCTS: Product[] = [
+  {
+    id: '1',
+    name: 'Product 1',
+    description: 'Description of Product 1',
+    price: 100,
+    shelfId: '1',
+    image: 'https://source.unsplash.com/random/1',
+  },
+  {
+    id: '2',
+    name: 'Product 2',
+    description: 'Description of Product 2',
+    price: 200,
+    shelfId: '2',
+    image: 'https://source.unsplash.com/random/2',
+  },
+  {
+    id: '3',
+    name: 'Product 3',
+    description: 'Description of Product 3',
+    price: 300,
+    shelfId: '3',
+    image: 'https://source.unsplash.com/random/3',
+  },
+];
+
+const PLACEHOLDER_SHELVES: Shelf[] = [
+  {
+    name: 'Shelf 1',
+    id: '123',
+    serialNumber: '123',
+    date: '2021-09-21',
+  },
+  {
+    name: 'Shelf 2',
+    id: '456',
+    serialNumber: '456',
+    date: '2021-09-21',
+  },
+  {
+    name: 'Shelf 3',
+    id: '789',
+    serialNumber: '789',
+    date: '2021-09-21',
+  },
+];
+
 // send a login/signup request: path: app\(security)\auth\page.tsx
 export const userAuthHandler = async (authState: AuthState) => {
   const { username, password, isLogin } = authState;
@@ -21,61 +69,22 @@ export const addShelfHandler = async (newShelfData: NewShelf) => {
 // get all shelves: path: app\(home)\shelf\page.tsx
 export const getAllShelves = async () => {
   // fetch all shelves
-  const placeholderShelves: Shelf[] = [
-    {
-      name: 'Shelf 1',
-      id: '123',
-      serialNumber: '123',
-      date: '2021-09-21',
-    },
-    {
-      name: 'Shelf 2',
-      id: '456',
-      serialNumber: '456',
-      date: '2021-09-21',
-    },
-    {
-      name: 'Shelf 3',
-      id: '789',
-      serialNumber: '789',
-      date: '2021-09-21',
-    },
-  ];
 
-  return placeholderShelves;
+  return PLACEHOLDER_SHELVES;
 };
 
 // get all products: path: app\(home)\product\page.tsx
 export const getAllProducts = async () => {
   // fetch all products
-  const placeholderProducts: Product[] = [
-    {
-      id: '1',
-      name: 'Product 1',
-      description: 'Description of Product 1',
-      price: 100,
-      shelfId: '1',
-      image: 'https://via.placeholder.com/150',
-    },
-    {
-      id: '2',
-      name: 'Product 2',
-      description: 'Description of Product 2',
-      price: 200,
-      shelfId: '2',
-      image: 'https://via.placeholder.com/150',
-    },
-    {
-      id: '3',
-      name: 'Product 3',
-      description: 'Description of Product 3',
-      price: 300,
-      shelfId: '3',
-      image: 'https://via.placeholder.com/150',
-    },
-  ];
 
-  return placeholderProducts;
+  return PLACEHOLDER_PRODUCTS;
+};
+
+// get a product: path: app\(home)\product\[id]\page.tsx
+export const getProduct = async (productId: string) => {
+  // fetch a product
+
+  return PLACEHOLDER_PRODUCTS[0];
 };
 
 // add a new product: path: app\(home)\product\new\page.tsx
