@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { Shelf } from '@/utils/interfaces';
 import { updateShelfHandler } from '@/utils/service';
 import {
@@ -6,10 +8,8 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Button,
   Input,
 } from '@nextui-org/react';
-import { useEffect, useState } from 'react';
 
 interface ShelfEditModalProps {
   shelf: Shelf;
@@ -64,32 +64,23 @@ const ShelfEditModal = ({
                   })
                 }
               />
-              <Input
-                label='Date'
-                placeholder='Enter date'
-                variant='bordered'
-                value={shelfData.date}
-                onChange={(e) =>
-                  setShelfData({
-                    ...shelfData,
-                    date: e.target.value,
-                  })
-                }
-              />
             </ModalBody>
             <ModalFooter>
-              <Button color='danger' variant='flat' onPress={onClose}>
+              <button
+                className='text-white bg-slate-700 px-4 py-2 rounded-md text-sm w-20 hover:bg-slate-600'
+                onClick={onClose}
+              >
                 Cancel
-              </Button>
-              <Button
-                color='primary'
-                onPress={() => {
+              </button>
+              <button
+                className='text-white bg-blue-500 px-4 py-2 rounded-md text-sm w-20 hover:bg-blue-400'
+                onClick={() => {
                   updateShelfHandler(shelfData);
                   onClose();
                 }}
               >
                 Save
-              </Button>
+              </button>
             </ModalFooter>
           </>
         )}

@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { Product } from '@/utils/interfaces';
 import { updateProductHandler } from '@/utils/service';
 import {
@@ -6,10 +8,8 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Button,
   Input,
 } from '@nextui-org/react';
-import { useEffect, useState } from 'react';
 
 interface ProductEditModalProps {
   product: Product;
@@ -106,18 +106,21 @@ const ProductEditModal = ({
               />
             </ModalBody>
             <ModalFooter>
-              <Button color='danger' variant='flat' onPress={onClose}>
+              <button
+                className='text-white bg-slate-700 px-4 py-2 rounded-md text-sm w-20 hover:bg-slate-600'
+                onClick={onClose}
+              >
                 Cancel
-              </Button>
-              <Button
-                color='primary'
-                onPress={() => {
+              </button>
+              <button
+                className='text-white bg-primary px-4 py-2 rounded-md text-sm w-20 hover:bg-primary-dark'
+                onClick={() => {
                   updateProductHandler(productData);
                   onClose();
                 }}
               >
                 Save
-              </Button>
+              </button>
             </ModalFooter>
           </>
         )}
