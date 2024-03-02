@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import { Product } from '@/utils/interfaces';
-import { updateProductHandler } from '@/utils/service';
+import {
+  addProductHandler,
+  updateProductHandler,
+} from '@/utils/service';
 import {
   Modal,
   ModalContent,
@@ -12,19 +15,35 @@ import {
 } from '@nextui-org/react';
 
 interface ProductEditModalProps {
-  product: Product;
-  editMode: boolean;
+  product: Product | null;
   isModalOpen: boolean;
   onModalOpenChange: (isOpen: boolean) => void;
 }
 
 const ProductEditModal = ({
   product,
-  editMode,
   isModalOpen,
   onModalOpenChange,
 }: ProductEditModalProps) => {
-  const [productData, setProductData] = useState<Product>(product);
+  const newProduct: Product = {
+    description: '',
+    id: '',
+    image: '',
+    name: '',
+    price: 0,
+    shelfId: '',
+  };
+
+  const [productData, setProductData] = useState<Product>(
+    product ?? newProduct
+  );
+
+  const productSaveHandler = async (onClose: () => void) => {
+    product
+      ? await updateProductHandler(productData)
+      : await addProductHandler(productData);
+    onClose();
+  };
 
   return (
     <Modal
@@ -36,12 +55,12 @@ const ProductEditModal = ({
         {(onClose) => (
           <>
             <ModalHeader className='flex flex-col gap-1'>
-              Edit Product
+              {product ? 'Edit' : 'New'} Product
             </ModalHeader>
             <ModalBody>
               <Input
                 autoFocus
-                label='text'
+                label='Product name'
                 placeholder='Enter product name'
                 variant='bordered'
                 value={productData.name}
@@ -81,7 +100,7 @@ const ProductEditModal = ({
               <Input
                 label='Shelf ID'
                 placeholder='Enter shelf ID'
-                type='number'
+                type='text'
                 variant='bordered'
                 value={productData.shelfId}
                 onChange={(e) =>
@@ -114,10 +133,7 @@ const ProductEditModal = ({
               </button>
               <button
                 className='text-white bg-primary px-4 py-2 rounded-md text-sm w-20 hover:bg-primary-dark'
-                onClick={() => {
-                  updateProductHandler(productData);
-                  onClose();
-                }}
+                onClick={() => productSaveHandler(onClose)}
               >
                 Save
               </button>

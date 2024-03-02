@@ -33,10 +33,10 @@ const ShelfEditModal = ({
     shelf ?? newShelf
   );
 
-  const saveShelfHandler = (onClose: () => void) => {
+  const saveShelfHandler = async (onClose: () => void) => {
     shelf
-      ? updateShelfHandler(shelfData)
-      : addShelfHandler(shelfData);
+      ? await updateShelfHandler(shelfData)
+      : await addShelfHandler(shelfData);
     onClose();
   };
 
@@ -55,7 +55,7 @@ const ShelfEditModal = ({
             <ModalBody>
               <Input
                 autoFocus
-                label='text'
+                label='Shelf name'
                 placeholder='Enter shelf name'
                 variant='bordered'
                 value={shelfData.name}
