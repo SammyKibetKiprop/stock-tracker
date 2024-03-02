@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { userLogoutHandler } from '@/utils/service';
 
 const UserView = () => {
   const [authModeOpen, setAuthModeOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <div
@@ -19,13 +23,19 @@ const UserView = () => {
         <ul className='space-y-2 w-full text-sm'>
           {/* <li className='px-4 py-2 hover:bg-gray-100'>Profile</li> */}
           {/* <li className='px-4 py-2 md:py-3'>Jane Doe</li> */}
-          <li className='px-4 py-2 md:py-3 hover:bg-red-100'>
+          <li
+            className='px-4 py-2 md:py-3 hover:bg-red-100'
+            onClick={async () => {
+              await userLogoutHandler();
+              router.push('/auth');
+            }}
+          >
             Logout
           </li>
         </ul>
       </div>
     </div>
   );
-}
+};
 
-export default UserView
+export default UserView;

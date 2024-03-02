@@ -1,8 +1,4 @@
-import {
-  AuthState,
-  Product,
-  Shelf,
-} from '@/utils/interfaces';
+import { AuthState, Product, Shelf } from '@/utils/interfaces';
 
 const PLACEHOLDER_PRODUCTS: Product[] = [
   {
@@ -60,6 +56,12 @@ export const userAuthHandler = async (authState: AuthState) => {
   console.log({ username, password, isLogin });
 
   // do the necessary depending on whether it is login or signup
+};
+
+// logout user
+export const userLogoutHandler = async () => {
+  // logout user
+  return;
 };
 
 // ====== SHELF ========
