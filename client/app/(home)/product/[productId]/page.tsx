@@ -76,7 +76,6 @@ const ProductDetail = () => {
 
       <ProductEditModal
         product={product}
-        editMode={false}
         isModalOpen={isModalOpen}
         onModalOpenChange={onModalOpenChange}
       />
