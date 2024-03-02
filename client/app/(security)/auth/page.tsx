@@ -1,5 +1,7 @@
 'use client';
+
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { TextField } from '@mui/material';
 
 import { userAuthHandler } from '@/utils/service';
@@ -11,19 +13,26 @@ const Auth = () => {
     password: '',
     isLogin: true,
   });
+  const router = useRouter();
+
+  const authSubmitHandler = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+    try {
+      await userAuthHandler(authState);
+      router.push('/');
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className=' max-w-[26rem] w-screen min-h-72 h-fit rounded-lg p-8 bg-white shadow-lg grid gap-16'>
       <h2 className='font-bold tracking-wide text-2xl capitalize'>
         {authState.isLogin ? 'login' : 'register'}
       </h2>
-      <form
-        className='grid gap-10'
-        onSubmit={(e) => {
-          e.preventDefault();
-          userAuthHandler(authState);
-        }}
-      >
+      <form className='grid gap-10' onSubmit={authSubmitHandler}>
         <TextField
           id='username'
           type='text'

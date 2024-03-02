@@ -56,6 +56,7 @@ export const userAuthHandler = async (authState: AuthState) => {
   console.log({ username, password, isLogin });
 
   // do the necessary depending on whether it is login or signup
+  return;
 };
 
 // logout user
