@@ -1,4 +1,5 @@
 import { Product } from '@/utils/interfaces';
+import { updateProductHandler } from '@/utils/service';
 import {
   Modal,
   ModalContent,
@@ -8,13 +9,12 @@ import {
   Button,
   Input,
 } from '@nextui-org/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface ProductEditModalProps {
   product: Product;
   editMode: boolean;
   isModalOpen: boolean;
-  onModalOpen: () => void;
   onModalOpenChange: (isOpen: boolean) => void;
 }
 
@@ -22,21 +22,9 @@ const ProductEditModal = ({
   product,
   editMode,
   isModalOpen,
-  onModalOpen,
   onModalOpenChange,
 }: ProductEditModalProps) => {
-  const emptyProduct: Product = {
-    id: '',
-    name: '',
-    description: '',
-    price: 0,
-    shelfId: '',
-    image: '',
-  };
-
-  const [productData, setProductData] = useState<Product>(
-    editMode ? product : emptyProduct
-  );
+  const [productData, setProductData] = useState<Product>(product);
 
   return (
     <Modal
@@ -121,7 +109,13 @@ const ProductEditModal = ({
               <Button color='danger' variant='flat' onPress={onClose}>
                 Cancel
               </Button>
-              <Button color='primary' onPress={onClose}>
+              <Button
+                color='primary'
+                onPress={() => {
+                  updateProductHandler(productData);
+                  onClose();
+                }}
+              >
                 Save
               </Button>
             </ModalFooter>

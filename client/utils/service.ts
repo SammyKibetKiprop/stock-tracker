@@ -106,6 +106,7 @@ export const deleteShelfHandler = async (shelfId: string) => {
 export const updateProductHandler = async (
   updatedProductData: Product
 ) => {
+  // update a product
   console.log(updatedProductData);
 };
 

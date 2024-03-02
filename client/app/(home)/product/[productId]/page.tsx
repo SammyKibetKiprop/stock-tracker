@@ -10,7 +10,7 @@ import { Button } from '@mui/material';
 import ProductEditModal from '@/components/product/EditModal';
 
 const ProductDetail = () => {
-  const [product, setProduct] = useState({} as Product);
+  const [product, setProduct] = useState<Product | null>(null);
   const {
     isOpen: isModalOpen,
     onOpen: onModalOpen,
@@ -24,7 +24,6 @@ const ProductDetail = () => {
     getProduct(productId as string).then((data: Product) => {
       setProduct(data);
     });
-    console.log(productId);
   }, [productId]);
 
   if (!product) return <div>Loading...</div>;
@@ -58,12 +57,12 @@ const ProductDetail = () => {
           {/* actions = edit, delete */}
           <div className='flex gap-4 justify-end mt-6'>
             <button
-              className='text-white bg-slate-700 px-4 py-1 rounded-md text-sm w-20 hover:bg-slate-600'
+              className='text-white bg-slate-700 px-4 py-2 rounded-md text-sm w-20 hover:bg-slate-600'
               onClick={onModalOpen}
             >
               Edit
             </button>
-            <button className='text-white bg-red-500 px-4 py-1 rounded-md text-sm w-20 hover:bg-red-400'>
+            <button className='text-white bg-red-500 px-4 py-2 rounded-md text-sm w-20 hover:bg-red-400'>
               Delete
             </button>
           </div>
@@ -72,9 +71,8 @@ const ProductDetail = () => {
 
       <ProductEditModal
         product={product}
-        editMode={true}
+        editMode={false}
         isModalOpen={isModalOpen}
-        onModalOpen={onModalOpen}
         onModalOpenChange={onModalOpenChange}
       />
     </>
