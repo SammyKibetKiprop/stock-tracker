@@ -53,6 +53,8 @@ const PLACEHOLDER_SHELVES: Shelf[] = [
   },
 ];
 
+// ====== AUTHENTICATION ========
+
 // send a login/signup request: path: app\(security)\auth\page.tsx
 export const userAuthHandler = async (authState: AuthState) => {
   const { username, password, isLogin } = authState;
@@ -61,10 +63,7 @@ export const userAuthHandler = async (authState: AuthState) => {
   // do the necessary depending on whether it is login or signup
 };
 
-// add a new shelf: path: app\(home)\shelf\new\page.tsx
-export const addShelfHandler = async (newShelfData: NewShelf) => {
-  console.log(newShelfData);
-};
+// ====== SHELF ========
 
 // get all shelves: path: app\(home)\shelf\page.tsx
 export const getAllShelves = async () => {
@@ -72,6 +71,31 @@ export const getAllShelves = async () => {
 
   return PLACEHOLDER_SHELVES;
 };
+
+// get a shelf: path: app\(home)\shelf\[id]\page.tsx
+export const getShelf = async (shelfId: string) => {
+  // fetch a shelf
+
+  return PLACEHOLDER_SHELVES[0];
+};
+
+// add a new shelf: path: app\(home)\shelf\new\page.tsx
+export const addShelfHandler = async (newShelfData: NewShelf) => {
+  console.log(newShelfData);
+};
+
+// update a shelf: path: app\(home)\shelf\page.tsx
+export const updateShelfHandler = async (updatedShelfData: Shelf) => {
+  // update a shelf
+  console.log(updatedShelfData);
+};
+
+// delete a shelf: path: app\(home)\shelf\page.tsx
+export const deleteShelfHandler = async (shelfId: string) => {
+  console.log(`Shelf ${shelfId} deleted...`);
+};
+
+// ====== PRODUCT ========
 
 // get all products: path: app\(home)\product\page.tsx
 export const getAllProducts = async () => {
@@ -92,16 +116,6 @@ export const addProductHandler = async (newProductData: Product) => {
   console.log(newProductData);
 };
 
-// delete a product: path: app\(home)\product\page.tsx
-export const deleteProductHandler = async (productId: string) => {
-  console.log(productId);
-};
-
-// delete a shelf: path: app\(home)\shelf\page.tsx
-export const deleteShelfHandler = async (shelfId: string) => {
-  console.log(shelfId);
-};
-
 // update a product: path: app\(home)\product\page.tsx
 export const updateProductHandler = async (
   updatedProductData: Product
@@ -109,6 +123,13 @@ export const updateProductHandler = async (
   // update a product
   console.log(updatedProductData);
 };
+
+// delete a product: path: app\(home)\product\page.tsx
+export const deleteProductHandler = async (productId: string) => {
+  console.log(`Product ${productId} deleted...`);
+};
+
+// ====== SALES ========
 
 // getSalesPerShift: path: app\(home)\shelf\page.tsx
 export const getSalesPerShift = async () => {

@@ -12,6 +12,7 @@ import {
 import { styled } from '@mui/material/styles';
 
 import { Shelf } from '@/utils/interfaces';
+import { useRouter } from 'next/navigation';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -24,6 +25,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const ShelfDataTable = ({ shelves }: { shelves: Shelf[] }) => {
+  const router = useRouter();
+
   return (
     <div className='flex flex-col justify-between items-start gap-10 col-start-1 col-span-1 md:col-span-2 row-start-1 row-span-1'>
       <TableContainer component={Paper}>
@@ -39,7 +42,11 @@ const ShelfDataTable = ({ shelves }: { shelves: Shelf[] }) => {
 
           <TableBody>
             {shelves.map((shelf) => (
-              <TableRow key={shelf.id}>
+              <TableRow
+                key={shelf.id}
+                className='hover:bg-slate-100 hover:cursor-pointer'
+                onClick={() => router.push(`/shelf/${shelf.id}`)}
+              >
                 <StyledTableCell>{shelf.name}</StyledTableCell>
                 <StyledTableCell>
                   {shelf.serialNumber}
