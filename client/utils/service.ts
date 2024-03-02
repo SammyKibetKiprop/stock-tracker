@@ -1,6 +1,5 @@
 import {
   AuthState,
-  NewShelf,
   Product,
   Shelf,
 } from '@/utils/interfaces';
@@ -80,7 +79,7 @@ export const getShelf = async (shelfId: string) => {
 };
 
 // add a new shelf: path: app\(home)\shelf\new\page.tsx
-export const addShelfHandler = async (newShelfData: NewShelf) => {
+export const addShelfHandler = async (newShelfData: Shelf) => {
   console.log(newShelfData);
 };
 

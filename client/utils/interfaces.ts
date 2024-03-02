@@ -4,17 +4,6 @@ export interface AuthState {
   isLogin: boolean;
 }
 
-export interface NewShelf {
-  name: string;
-  id: string;
-  category: string;
-  prodType: string;
-  product: string;
-  prodId: string;
-  prodDesc: string;
-  price: string;
-}
-
 export interface Shelf {
   name: string;
   id: string;

@@ -70,7 +70,6 @@ const ShelfDetail = () => {
 
       <ShelfEditModal
         shelf={shelf}
-        editMode={true}
         isModalOpen={isModalOpen}
         onModalOpenChange={onModalOpenChange}
       />

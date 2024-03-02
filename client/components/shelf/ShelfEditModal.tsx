@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Shelf } from '@/utils/interfaces';
-import { updateShelfHandler } from '@/utils/service';
+import { addShelfHandler, updateShelfHandler } from '@/utils/service';
 import {
   Modal,
   ModalContent,
@@ -12,19 +12,33 @@ import {
 } from '@nextui-org/react';
 
 interface ShelfEditModalProps {
-  shelf: Shelf;
-  editMode: boolean;
+  shelf: Shelf | null;
   isModalOpen: boolean;
   onModalOpenChange: (isOpen: boolean) => void;
 }
 
 const ShelfEditModal = ({
   shelf,
-  editMode,
   isModalOpen,
   onModalOpenChange,
 }: ShelfEditModalProps) => {
-  const [shelfData, setShelfData] = useState<Shelf>(shelf);
+  const newShelf: Shelf = {
+    name: '',
+    id: Date.now().toString(),
+    serialNumber: Date.now().toString(),
+    date: Date.now().toString(),
+  };
+
+  const [shelfData, setShelfData] = useState<Shelf>(
+    shelf ?? newShelf
+  );
+
+  const saveShelfHandler = (onClose: () => void) => {
+    shelf
+      ? updateShelfHandler(shelfData)
+      : addShelfHandler(shelfData);
+    onClose();
+  };
 
   return (
     <Modal
@@ -36,7 +50,7 @@ const ShelfEditModal = ({
         {(onClose) => (
           <>
             <ModalHeader className='flex flex-col gap-1'>
-              Edit Shelf
+              {shelf ? 'Edit' : 'New'} Shelf
             </ModalHeader>
             <ModalBody>
               <Input
@@ -74,10 +88,7 @@ const ShelfEditModal = ({
               </button>
               <button
                 className='text-white bg-blue-500 px-4 py-2 rounded-md text-sm w-20 hover:bg-blue-400'
-                onClick={() => {
-                  updateShelfHandler(shelfData);
-                  onClose();
-                }}
+                onClick={() => saveShelfHandler(onClose)}
               >
                 Save
               </button>

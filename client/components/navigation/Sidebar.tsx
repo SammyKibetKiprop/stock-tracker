@@ -18,11 +18,6 @@ const menuLinks = [
     link: '/shelf',
   },
   {
-    name: 'Add Shelf',
-    icon: <HiOutlineViewGridAdd />,
-    link: '/shelf/new',
-  },
-  {
     name: 'Products',
     icon: <TbAdjustmentsDollar />,
     link: '/product',
